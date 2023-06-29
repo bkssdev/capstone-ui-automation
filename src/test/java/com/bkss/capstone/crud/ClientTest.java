@@ -17,8 +17,9 @@ public class ClientTest {
     private WebDriver driver;
     private ClientPage clientPage;
     private static final String URL = "http://localhost:3000";
+
     @BeforeTest
-    public void setUp(){
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -31,26 +32,27 @@ public class ClientTest {
     public void viewClientListTest() throws InterruptedException {
         Assert.assertTrue(clientPage.currentRowCount() > 0);
     }
+
     @Test
     public void createClientTest() throws InterruptedException {
-        Client newClient = new Client("Fname Lname","fname@gmail.com");
-        Assert.assertEquals(clientPage.addClient(newClient),newClient.getName());
+        Client newClient = new Client("Fname Lname", "fname@gmail.com");
+        Assert.assertEquals(clientPage.addClient(newClient), newClient.getName());
     }
 
     @Test
     public void editClientTest() throws InterruptedException {
-        Client editedClient = new Client("Edited Lname","edited@gmail.com");
-        Assert.assertEquals(clientPage.editClient(editedClient),editedClient.getName());
+        Client editedClient = new Client("Edited Lname", "edited@gmail.com");
+        Assert.assertEquals(clientPage.editClient(editedClient), editedClient.getName());
     }
 
     @Test
     public void deleteClientTest() throws InterruptedException {
         int currentRowsCount = clientPage.currentRowCount();
-        Assert.assertEquals(clientPage.deleteClient(),currentRowsCount-1);
+        Assert.assertEquals(clientPage.deleteClient(), currentRowsCount - 1);
     }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 
