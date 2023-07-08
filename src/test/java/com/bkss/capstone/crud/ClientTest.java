@@ -36,19 +36,21 @@ public class ClientTest {
     @Test
     public void createClientTest() throws InterruptedException {
         Client newClient = new Client("Fname Lname", "fname@gmail.com");
+        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         Assert.assertEquals(clientPage.addClient(newClient), newClient.getName());
+        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
     }
 
     @Test
     public void editClientTest() throws InterruptedException {
-        Client editedClient = new Client("Edited Lname", "edited@gmail.com");
-        Assert.assertEquals(clientPage.editClient(editedClient), editedClient.getName());
+        // TODO Implement the edit test logic
+        Assert.assertEquals(1, 0);
     }
 
     @Test
     public void deleteClientTest() throws InterruptedException {
-        int currentRowsCount = clientPage.currentRowCount();
-        Assert.assertEquals(clientPage.deleteClient(), currentRowsCount - 1);
+        // TODO Implement the delete test logic
+        Assert.assertEquals(1, 0);
     }
 
     @AfterTest

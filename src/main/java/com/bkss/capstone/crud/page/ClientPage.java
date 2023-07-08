@@ -35,26 +35,13 @@ public class ClientPage {
     }
 
     public String editClient(Client client) throws InterruptedException {
-        By editedClient = By.xpath("//a[@href='/clients/4']");
-        driver.findElement(editedClient).click();
-        driver.findElement(clientName).clear();
-        driver.findElement(clientEmail).clear();
-        driver.findElement(clientName).sendKeys(client.getName());
-        driver.findElement(clientEmail).sendKeys(client.getEmail());
-        driver.findElement(editClient).click();
-        synchronized (driver) {
-            driver.wait(1000);
-        }
-        By editedClientName = By.xpath(".//*[@id='clientsTable']//td[contains(.,'" + client.getName() + "')]");
-        return driver.findElement(editedClientName).getText();
+      // TODO Implement the edit client logic
+        return null;
     }
 
     public int deleteClient() throws InterruptedException {
-        driver.findElement(deleteClient).click();
-        synchronized (driver) {
-            driver.wait(1000);
-        }
-        return driver.findElements(By.xpath("//table[@id='clientsTable']/tbody/tr")).size();
+        // TODO Implement the delete client logic
+        return 0;
     }
 
     public int currentRowCount() {
