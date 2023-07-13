@@ -30,15 +30,15 @@ public class ClientTest {
 
     @Test
     public void viewClientListTest() throws InterruptedException {
-        Assert.assertTrue(clientPage.currentRowCount() > 0);
+        Assert.assertTrue(clientPage.currentRowCount() > 9);
     }
 
     @Test
     public void createClientTest() throws InterruptedException {
-        Client newClient = new Client("Fname Lname", "fname@gmail.com");
+        Client newClient = new Client("Daniels Lname", "fname@gmail.com");
         driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         Assert.assertEquals(clientPage.addClient(newClient), newClient.getName());
-        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
     }
 
     @Test
